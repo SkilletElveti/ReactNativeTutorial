@@ -5,7 +5,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style = {styles.headers}>
-        <Text  style = {styles.boldText}>Hello World</Text>
+        <Text  >Hello World</Text>
+      </View>
+      <View style={styles.body}>
+        <Text>Lorem ipsum Lorem ipsum</Text>
+        <Text>Lorem ipsum Lorem ipsum</Text>
+        <Text>Lorem ipsum Lorem ipsum</Text>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -25,5 +30,9 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontStyle: 'normal'
+  },
+  body: {
+    padding: 20,
+    backgroundColor: 'yellow'
   }
 });
