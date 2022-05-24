@@ -1,18 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState} from 'react';
 
 export default function App() {
+  const [name,setName] = useState('Poly');
+  const checkForName = () => {
+    if (name === "Poly") {
+      setName('Shubham')
+    } else {
+      setName('Poly')
+    }
+  }
   return (
     <View style={styles.container}>
-      <View style = {styles.headers}>
-        <Text  >Hello World</Text>
-      </View>
-      <View style={styles.body}>
-        <Text>Lorem ipsum Lorem ipsum</Text>
-        <Text>Lorem ipsum Lorem ipsum</Text>
-        <Text>Lorem ipsum Lorem ipsum</Text>
-      </View>
-      <StatusBar style="auto" />
+    <Text>My name is { name } </Text>
+    <View style={styles.body}><Button title='Click' onPress={() => checkForName()}/></View>
+    <StatusBar style="auto" />
     </View>
   );
 }
@@ -32,7 +35,8 @@ const styles = StyleSheet.create({
     fontStyle: 'normal'
   },
   body: {
-    padding: 20,
-    backgroundColor: 'yellow'
+    margin:10,
+    
+    backgroundColor: 'cyan'
   }
 });
