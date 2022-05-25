@@ -1,20 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput} from 'react-native';
 import React, { useState} from 'react';
 
 export default function App() {
   const [name,setName] = useState('Poly');
-  const checkForName = () => {
-    if (name === "Poly") {
-      setName('Shubham')
-    } else {
-      setName('Poly')
-    }
+  const [age,setAge] = useState('10')
+  const checkForName = (name) => {
+    setName(name)
+  }
+  const checkForAge = (Age) => {
+    setAge(Age)
   }
   return (
     <View style={styles.container}>
-    <Text>My name is { name } </Text>
-    <View style={styles.body}><Button title='Click' onPress={() => checkForName()}/></View>
+    <Text>Enter Name:  </Text>
+    <TextInput 
+        style={styles.input}
+        multiline
+        placeholder='e.g. Jane Doe'
+        onChangeText={(value) => checkForName(value)}
+      />
+    <Text>Enter Age:  </Text>
+    <TextInput 
+        style={styles.input}
+        keyboardType = 'numeric'
+        placeholder='e.g. 10'
+        input = 'number'
+        onChangeText={(value) => checkForAge(value)}
+      />  
+    <Text>Name: { name }, Age: { age }</Text>
+    {/* <View style={styles.body}><Button title='CLICK' onPress={() => checkForName()}/></View> */}
     <StatusBar style="auto" />
     </View>
   );
@@ -35,8 +50,14 @@ const styles = StyleSheet.create({
     fontStyle: 'normal'
   },
   body: {
-    margin:10,
-    
+    marginTop:15,
     backgroundColor: 'cyan'
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 10,
+    width: 200
   }
 });
