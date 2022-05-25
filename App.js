@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView} from 'react-native';
 import React, { useState} from 'react';
 
 export default function App() {
@@ -17,14 +17,36 @@ export default function App() {
     {name: 'Vinod', key: '3'},
     {name: 'Rahul', key: '4'},
     {name: 'Varun', key: '5'},
+    {name: 'Varun', key: '6'},
+    {name: 'Varun', key: '7'},
+    {name: 'Varun', key: '8'},
+    {name: 'Varun', key: '9'},
+    {name: 'Varun', key: '10'},
+    {name: 'Varun', key: '11'},
+    {name: 'Varun', key: '12'},
+    {name: 'Varun', key: '13'},
+    {name: 'Varun', key: '14'},
+    {name: 'Varun', key: '15'},
+    {name: 'Varun', key: '16'},
+    {name: 'Varun', key: '17'},
+    {name: 'Varun', key: '18'},
+    {name: 'Varun', key: '19'},
+    {name: 'Varun', key: '20'},
+    {name: 'Varun', key: '21'},
+    {name: 'Varun', key: '22'},
+    {name: 'Varun', key: '23'},
+    {name: 'Varun', key: '24'},
   ])
   return (
     <View style={styles.container}>
+    <ScrollView>
     {peoples.map((people) => {
-        return(<View key={people.key} >
-          <Text style={styles.item}> {people.name} </Text>
-        </View>);
+        return(
+            <View key={people.key} >
+              <Text style={styles.item}> {people.name} </Text>
+            </View>)
       })}
+      </ScrollView>
     <StatusBar style="auto" />
     </View>
   );
