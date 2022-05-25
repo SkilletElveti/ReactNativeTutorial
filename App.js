@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, FlatList,ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList,ScrollView,TouchableOpacity} from 'react-native';
 import React, { useState} from 'react';
+
 
 export default function App() {
   const [name,setName] = useState('Poly');
@@ -37,7 +38,13 @@ export default function App() {
     {name: 'Varun', key: '23'},
     {name: 'Varun', key: '24'},
   ])
-  
+  const onPressHandler = (id) => {
+    const newAr = peoples.filter(p => p.key != id)
+    console.log(newAr)
+    setPeoples((prevPeople) => {
+      return prevPeople.filter(peoples => peoples.key !== id)
+    })
+  }
   return (
     <View style={styles.container}>
     <FlatList 
@@ -45,7 +52,9 @@ export default function App() {
       keyExtractor={(item) => item.key}
       data={peoples}
       renderItem={({item}) => ( 
-        <Text style={styles.item}> {item.name} </Text>
+        <TouchableOpacity onPress={() => onPressHandler(item.key)}><Text style={styles.item}> {item.name} </Text></TouchableOpacity>
+        
+       
       )}
     />
     {/* <ScrollView>
