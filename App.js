@@ -11,25 +11,20 @@ export default function App() {
   const checkForAge = (Age) => {
     setAge(Age)
   }
+  const [peoples,setPeoples] = useState([
+    {name: 'Shubham', key: '1'},
+    {name: 'Rohit', key: '2'},
+    {name: 'Vinod', key: '3'},
+    {name: 'Rahul', key: '4'},
+    {name: 'Varun', key: '5'},
+  ])
   return (
     <View style={styles.container}>
-    <Text>Enter Name:  </Text>
-    <TextInput 
-        style={styles.input}
-        multiline
-        placeholder='e.g. Jane Doe'
-        onChangeText={(value) => checkForName(value)}
-      />
-    <Text>Enter Age:  </Text>
-    <TextInput 
-        style={styles.input}
-        keyboardType = 'numeric'
-        placeholder='e.g. 10'
-        input = 'number'
-        onChangeText={(value) => checkForAge(value)}
-      />  
-    <Text>Name: { name }, Age: { age }</Text>
-    {/* <View style={styles.body}><Button title='CLICK' onPress={() => checkForName()}/></View> */}
+    {peoples.map((people) => {
+        return(<View key={people.key}>
+          <Text> {people.name} </Text>
+        </View>);
+      })}
     <StatusBar style="auto" />
     </View>
   );
@@ -39,8 +34,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 20,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   headers: {
     padding: 10,
