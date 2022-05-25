@@ -21,8 +21,8 @@ export default function App() {
   return (
     <View style={styles.container}>
     {peoples.map((people) => {
-        return(<View key={people.key}>
-          <Text> {people.name} </Text>
+        return(<View key={people.key} >
+          <Text style={styles.item}> {people.name} </Text>
         </View>);
       })}
     <StatusBar style="auto" />
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 40,
+    paddingTop: 70,
     paddingHorizontal: 20,
     // alignItems: 'center',
     // justifyContent: 'center',
@@ -56,5 +56,13 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 200
-  }
+  },
+  item: {
+    marginTop: 20,
+    marginStart:15,
+    marginRight:15,
+    padding:10,
+    backgroundColor: '#888',
+    textAlign: 'center'
+    }
 });
